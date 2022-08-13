@@ -7,7 +7,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name = "produtos")
-public class Produto {
+public class Produto  {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -17,7 +17,7 @@ public class Produto {
 	private BigDecimal preco;
 	private LocalDate dataCadastrada = LocalDate.now();
 
-	@Enumerated(EnumType.STRING)
+	@ManyToOne
 	private Categoria categoria;
 
 	public Produto(String nome, String descricao, BigDecimal preco, Categoria categoria) {
