@@ -8,15 +8,15 @@ import javax.persistence.Persistence;
 
 import br.com.alura.loja.Dao.ProdutoDao;
 import br.com.alura.loja.jpautil.JPAUtil;
+import br.com.alura.loja.modelo.Categoria;
 import br.com.alura.loja.modelo.Produto;
 
 public class CadastroDeProduto {
 	
 	public static void main(String[] args) {
-		Produto celular = new Produto();
-		celular.setNome("Xiaomi Redmi");
-		celular.setDescricao("Muito legal");
-		celular.setPreco(new BigDecimal("800"));
+		Produto celular = new Produto("Xiaomi Redmi",
+				"Muito legal", new BigDecimal("800"), Categoria.CEULARES);
+
 		
 		EntityManager em = JPAUtil.getEntityManager();
 		ProdutoDao dao = new ProdutoDao(em);
